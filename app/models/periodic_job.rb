@@ -1,7 +1,7 @@
 class PeriodicJob < ActiveRecord::Base
   unloadable
 
-  attr_accessible :title, :author_id, :path
+  attr_accessible :title, :author_id, :path, :periodicity
 
   belongs_to :author, :class_name => 'User'
 

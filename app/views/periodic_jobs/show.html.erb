@@ -8,6 +8,8 @@
 
 <h3><%= h @periodic_job.path %></h3>
 
+<p><%= "#{t(:field_periodicity)} : #{@periodic_job.periodicity} (#{Cronex::ExpressionDescriptor.new(@periodic_job.periodicity).description})" if @periodic_job.periodicity.present? %></p>
+
 <div class="box">
   <p><%= simple_format(@job_content) %></p>
 </div>
