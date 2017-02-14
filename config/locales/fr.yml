@@ -1,0 +1,4 @@
+fr:
+  label_periodic_job_plural: Tâches périodiques
+  label_periodic_job_new: Nouvelle tâche périodique
+  field_path: Path

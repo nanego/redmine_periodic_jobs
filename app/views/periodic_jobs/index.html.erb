@@ -1,0 +1,37 @@
+<div class="contextual">
+  <%= link_to l(:label_periodic_job_new), {:controller => 'periodic_jobs', :action => 'new'}, :class => 'icon icon-add' %>
+</div>
+
+<h2><%= link_to l(:label_periodic_job_plural), {:controller => 'periodic_jobs', :action => 'index'} %></h2>
+
+<% if @periodic_jobs.any? %>
+  <table class="list">
+    <thead>
+    <tr>
+      <th><%= l(:field_title) %></th>
+      <th><%= l(:field_author) %></th>
+      <th><%= l(:field_path) %></th>
+      <th> </th>
+    </tr></thead>
+    <tbody>
+    <% for periodic_job in @periodic_jobs -%>
+      <tr class="periodic_job <%= cycle("odd", "even") %>">
+        <td class="title"><%= link_to h(periodic_job.title), {:controller => 'periodic_jobs', :action => 'show', :id => periodic_job} %></td>
+        <td class="author"><%= h(periodic_job.author.try(:name)) %></td>
+        <td class="path"><%= h(periodic_job.path) %></td>
+        <td class="buttons">
+          <%= link_to l(:button_show), {:controller=>'periodic_jobs',:action => 'show', :id => periodic_job}, :class => 'icon icon-copy' %>
+          <%= link_to l(:button_update), {:controller => 'periodic_jobs', :action => 'edit', :id => periodic_job}, :class => 'icon icon-edit' %>
+          <%= link_to l(:button_delete), {:controller => 'periodic_jobs', :action => 'destroy', :id => periodic_job}, :class => 'icon icon-del',
+                      :confirm => l(:text_are_you_sure), :method => :delete %>
+        </td>
+      </tr>
+    <% end -%>
+    </tbody>
+  </table>
+
+<% else %>
+  <p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+<% html_title(l(:label_periodic_job_plural)) -%>

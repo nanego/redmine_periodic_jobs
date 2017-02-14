@@ -1,0 +1,15 @@
+<div class="contextual">
+  <%= link_to l(:button_update), {:controller => 'periodic_jobs', :action => 'edit', :id => @periodic_job}, :class => 'icon icon-edit' %>
+  <%= link_to l(:button_delete), {:controller => 'periodic_jobs', :action => 'destroy', :id => @periodic_job}, :class => 'icon icon-del',
+              :confirm => l(:text_are_you_sure), :method => :delete %>
+</div>
+
+<h2><%= link_to l(:label_periodic_job_plural), periodic_jobs_path %> &#187; <%=h @periodic_job.title %></h2>
+
+<h3><%= h @periodic_job.path %></h3>
+
+<div class="box">
+  <p><%= simple_format(@job_content) %></p>
+</div>
+
+<% html_title(l(:label_periodic_job_plural)) -%>
