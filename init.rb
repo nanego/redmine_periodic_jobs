@@ -10,5 +10,7 @@ Redmine::Plugin.register :redmine_periodic_jobs do
 end
 
 Redmine::MenuManager.map :admin_menu do |menu|
-  menu.push :periodic_jobs, {:controller => :periodic_jobs}, :caption => :label_periodic_job_plural
+  menu.push :periodic_jobs, {:controller => :periodic_jobs},
+            :caption => :label_periodic_job_plural,
+            :html => {:class => 'icon'}
 end
