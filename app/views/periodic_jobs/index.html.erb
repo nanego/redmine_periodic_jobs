@@ -16,7 +16,7 @@
     </tr></thead>
     <tbody>
     <% for periodic_job in @periodic_jobs -%>
-      <tr class="periodic_job <%= cycle("odd", "even") %>">
+      <tr class="periodic_job">
         <td class="title"><%= link_to h(periodic_job.title), {:controller => 'periodic_jobs', :action => 'show', :id => periodic_job} %></td>
         <td class="author"><%= h(periodic_job.author.try(:name)) %></td>
         <td class="path"><%= h(periodic_job.path) %></td>

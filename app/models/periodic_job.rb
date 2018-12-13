@@ -1,7 +1,9 @@
 class PeriodicJob < ActiveRecord::Base
+  include Redmine::SafeAttributes
+
   unloadable
 
-  attr_accessible :title, :author_id, :path, :periodicity
+  safe_attributes :title, :author_id, :path, :periodicity
 
   belongs_to :author, :class_name => 'User'
 

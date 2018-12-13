@@ -1,4 +1,4 @@
-class CreatePeriodicJobs < ActiveRecord::Migration
+class CreatePeriodicJobs < ActiveRecord::Migration[4.2]
   def self.up
     create_table :periodic_jobs do |t|
       t.column :title, :string

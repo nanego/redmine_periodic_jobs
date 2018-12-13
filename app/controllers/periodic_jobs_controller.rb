@@ -3,7 +3,7 @@ class PeriodicJobsController < ApplicationController
 
   layout 'admin'
 
-  before_filter :require_admin
+  before_action :require_admin
 
   def index
     @periodic_jobs = PeriodicJob.all
