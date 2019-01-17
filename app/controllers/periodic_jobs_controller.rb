@@ -25,7 +25,8 @@ class PeriodicJobsController < ApplicationController
   end
 
   def create
-    @job = PeriodicJob.new(params[:periodic_job])
+    @job = PeriodicJob.new
+    @job.safe_attributes = params[:periodic_job]
     @job.author_id = User.current.id
     if @job.save
       flash[:notice] = l(:notice_successful_create)
@@ -41,7 +42,8 @@ class PeriodicJobsController < ApplicationController
 
   def update
     @job = PeriodicJob.find(params[:id])
-    if @job.update_attributes(params[:periodic_job])
+    @job.safe_attributes = params[:periodic_job]
+    if @job.save
       flash[:notice] = l(:notice_successful_update)
       redirect_to periodic_jobs_path
     else
