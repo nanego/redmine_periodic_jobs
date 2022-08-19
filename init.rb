@@ -9,6 +9,11 @@ Redmine::Plugin.register :redmine_periodic_jobs do
   author_url 'mailto:contact@vincent-robert.com'
 end
 
+# Patches to existing classes/modules
+ActiveSupport::Reloader.to_prepare do
+  require_dependency 'periodic_jobs/user_patch'
+end
+
 Redmine::MenuManager.map :admin_menu do |menu|
   menu.push :periodic_jobs, {:controller => :periodic_jobs},
             :caption => :label_periodic_job_plural,
