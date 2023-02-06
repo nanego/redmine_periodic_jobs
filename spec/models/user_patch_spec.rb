@@ -8,8 +8,9 @@ describe "UserPatch" do
   	user = User.last
     PeriodicJob.create(:title =>  'test1', author_id: user.id)
     PeriodicJob.create(:title =>  'test2', author_id: user.id)
-    expect do
-    	user.destroy
-    end.to change{ PeriodicJob.count }.by(-2)
+    user.destroy
+    
+    expect(PeriodicJob.first.author_id).to be_nil
+    expect(PeriodicJob.first.author_id).to be_nil
   end
 end
