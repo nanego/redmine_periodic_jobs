@@ -1,6 +1,15 @@
-require_dependency 'principal'
-require_dependency 'user'
+require 'principal'
+require 'user'
 
-class User < Principal
-  has_many :periodic_jobs,  :foreign_key => :author_id, :dependent => :nullify
+module PeriodicJobs
+  module UserPatch
+    def self.included(base)
+      base.class_eval do
+        unloadable
+        has_many :periodic_jobs, :foreign_key => :author_id, :dependent => :nullify
+      end
+    end
+  end
 end
+
+User.send(:include, PeriodicJobs::UserPatch)
