@@ -1,7 +1,5 @@
-class PeriodicJob < ActiveRecord::Base
+class PeriodicJob < ApplicationRecord
   include Redmine::SafeAttributes
-
-  unloadable
 
   safe_attributes :title, :author_id, :path, :periodicity
 

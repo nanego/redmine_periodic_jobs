@@ -1,5 +1,4 @@
 class PeriodicJobsController < ApplicationController
-  unloadable
 
   layout 'admin'
 

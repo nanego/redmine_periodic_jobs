@@ -19,3 +19,10 @@ Redmine::MenuManager.map :admin_menu do |menu|
             :caption => :label_periodic_job_plural,
             :html => { :class => 'icon' }
 end
+
+# Support for Redmine 5
+if Redmine::VERSION::MAJOR < 6
+  class ApplicationRecord < ActiveRecord::Base
+    self.abstract_class = true
+  end
+end
