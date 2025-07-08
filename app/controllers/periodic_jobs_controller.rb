@@ -10,12 +10,16 @@ class PeriodicJobsController < ApplicationController
 
   def show
     @periodic_job = PeriodicJob.find(params[:id])
-    path_to_file = File.join(Rails.root, @periodic_job.path)
-    begin
-      @job_content = File.read(path_to_file)
-    rescue
-      puts "!!! #{path_to_file}"
-      @job_content = "!!! Problème lors de la lecture du script."
+    allowed_dir = File.expand_path(Rails.root.join('script'))
+    requested_path = File.expand_path(File.join(allowed_dir, @periodic_job.path.to_s))
+    if requested_path.start_with?(allowed_dir + File::SEPARATOR) && File.file?(requested_path)
+      begin
+        @job_content = File.read(requested_path)
+      rescue
+        @job_content = "!!! Problème lors de la lecture du script."
+      end
+    else
+      @job_content = "!!! Accès refusé au fichier demandé."
     end
   end
 
