@@ -1,6 +1,6 @@
 <div class="contextual">
-  <%= link_to l(:button_update), { :controller => 'periodic_jobs', :action => 'edit', :id => @periodic_job }, :class => 'icon icon-edit' %>
-  <%= link_to l(:button_delete), { :controller => 'periodic_jobs', :action => 'destroy', :id => @periodic_job }, :class => 'icon icon-del',
+  <%= link_to sprite_icon('edit', l(:button_update)), { :controller => 'periodic_jobs', :action => 'edit', :id => @periodic_job } %>
+  <%= link_to sprite_icon('del', l(:button_delete)), { :controller => 'periodic_jobs', :action => 'destroy', :id => @periodic_job },
               :confirm => l(:text_are_you_sure), :method => :delete %>
 </div>
 

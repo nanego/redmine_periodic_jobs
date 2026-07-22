@@ -1,5 +1,5 @@
 <div class="contextual">
-  <%= link_to l(:label_periodic_job_new), {:controller => 'periodic_jobs', :action => 'new'}, :class => 'icon icon-add' %>
+  <%= link_to sprite_icon('add', l(:label_periodic_job_new)), {:controller => 'periodic_jobs', :action => 'new'} %>
 </div>
 
 <h2><%= link_to l(:label_periodic_job_plural), {:controller => 'periodic_jobs', :action => 'index'} %></h2>
@@ -22,9 +22,9 @@
         <td class="path"><%= h(periodic_job.path) %></td>
         <td class="periodicity" title="<%= periodic_job.periodicity.present? ? Cronex::ExpressionDescriptor.new(periodic_job.periodicity).description : '' %>"><%= h(periodic_job.periodicity) %></td>
         <td class="buttons">
-          <%= link_to l(:button_show), {:controller=>'periodic_jobs',:action => 'show', :id => periodic_job}, :class => 'icon icon-copy' %>
-          <%= link_to l(:button_update), {:controller => 'periodic_jobs', :action => 'edit', :id => periodic_job}, :class => 'icon icon-edit' %>
-          <%= link_to l(:button_delete), {:controller => 'periodic_jobs', :action => 'destroy', :id => periodic_job}, :class => 'icon icon-del',
+          <%= link_to sprite_icon('copy', l(:button_show)), {:controller=>'periodic_jobs',:action => 'show', :id => periodic_job} %>
+          <%= link_to sprite_icon('edit', l(:button_update)), {:controller => 'periodic_jobs', :action => 'edit', :id => periodic_job} %>
+          <%= link_to sprite_icon('del', l(:button_delete)), {:controller => 'periodic_jobs', :action => 'destroy', :id => periodic_job},
                       :confirm => l(:text_are_you_sure), :method => :delete %>
         </td>
       </tr>
