@@ -17,7 +17,9 @@ end
 Redmine::MenuManager.map :admin_menu do |menu|
   menu.push :periodic_jobs, { :controller => :periodic_jobs },
             :caption => :label_periodic_job_plural,
-            :html => { :class => 'icon' }
+            :icon => 'clock-play',
+            :plugin => 'redmine_periodic_jobs',
+            :html => { :class => 'icon icon-clock-play' }
 end
 
 # Support for Redmine 5
