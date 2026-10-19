@@ -1,5 +1,4 @@
 require "spec_helper"
-require File.dirname(__FILE__) + '/../../lib/periodic_jobs/user_patch'
 
 describe "UserPatch" do
   fixtures :users

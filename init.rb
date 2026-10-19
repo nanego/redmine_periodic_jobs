@@ -8,9 +8,11 @@ end
 
 require_relative 'lib/periodic_jobs/hooks/view_layouts_base_html_head'
 
-class ModelHook < Redmine::Hook::Listener
-  def after_plugins_loaded(_context = {})
-    require_relative 'lib/periodic_jobs/user_patch'
+module PeriodicJobs
+  class ModelHook < Redmine::Hook::Listener
+    def after_plugins_loaded(_context = {})
+      require_relative 'lib/periodic_jobs/user_patch'
+    end
   end
 end
 
